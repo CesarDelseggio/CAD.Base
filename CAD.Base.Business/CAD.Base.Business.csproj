@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\Auth\" />
+    <Folder Include="Specifications\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CAD.Base.Common\CAD.Base.Common.csproj" />
+    <ProjectReference Include="..\CAD.Base.DataAccess\CAD.Base.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>
