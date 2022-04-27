@@ -1,0 +1,24 @@
+﻿@inherits LayoutComponentBase
+
+<div class="wrapper">
+    <PublicNavBar></PublicNavBar>
+        
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        @Body
+    </div>
+        
+    <Footer></Footer>
+</div>
+
+@code{
+    [Inject]
+    IJSRuntime JSRuntime { get; set; }
+
+    protected override async void OnInitialized()
+    {
+        base.OnInitialized();
+        //Cambiamos la clase del Body para alternar entre estilo web y app
+        await JSRuntime.InvokeVoidAsync("MyInterop.ChangeTheme", "layout-top-nav");
+    }
+}

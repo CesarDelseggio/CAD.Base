@@ -21,4 +21,14 @@
     <ProjectReference Include="..\CAD.Base.Business\CAD.Base.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Components\Commond\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Pages\Back\Index.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+
 </Project>

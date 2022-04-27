@@ -1,0 +1,28 @@
+﻿@inherits LayoutComponentBase
+
+<!-- Site wrapper -->
+<div class="wrapper">
+    <TopNavBar/>
+    
+    <MainSideBar/>
+    
+    <div class="content-wrapper">
+        @Body
+    </div>
+        
+    <Footer/>
+</div>
+<!-- ./wrapper -->
+
+
+@code{
+    [Inject]
+    IJSRuntime JSRuntime { get; set; }
+
+    protected override async void OnInitialized()
+    {
+        base.OnInitialized();
+        //Cambiamos la clase del Body para alternar entre estilo web y app
+        await JSRuntime.InvokeVoidAsync("MyInterop.ChangeTheme", "sidebar-mini");
+    }
+}

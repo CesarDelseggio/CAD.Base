@@ -1,0 +1,15 @@
+﻿@inherits LayoutComponentBase
+
+@Body
+
+@code{
+    [Inject]
+    IJSRuntime JSRuntime { get; set; }
+
+    protected override async void OnInitialized()
+    {
+        base.OnInitialized();
+        //Cambiamos la clase del Body para alternar entre estilo web y app
+        await JSRuntime.InvokeVoidAsync("MyInterop.ChangeTheme", "login-page");
+    }
+}

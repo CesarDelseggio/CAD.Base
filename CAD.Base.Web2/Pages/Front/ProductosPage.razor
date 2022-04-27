@@ -1,0 +1,18 @@
+﻿@page "/productos/{IdCategoria}"
+
+ <div class="content">
+    <div class="container">
+        <div class="container-fluid">
+            <h3>Productos de la categoria @IdCategoria</h3>
+
+            <p>Bienvenido al front</p>
+    
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string IdCategoria { get; set; }
+
+}
