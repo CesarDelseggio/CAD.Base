@@ -1,12 +1,16 @@
 ﻿using CAD.Base.Common.ViewModels.Account;
 using CAD.Base.Web.Interfaces.Auth;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CAD.Base.Web.Services.Auth
@@ -16,17 +20,49 @@ namespace CAD.Base.Web.Services.Auth
         private IConfiguration configuration;
         private UserManager<IdentityUser> userManager;
         private SignInManager<IdentityUser> signInManager;
+        private HttpContext httpContext;
 
         public const string SecretKeyName = "SecretKey";
 
-        public AuthService(IConfiguration configuration, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AuthService(IConfiguration configuration, 
+            UserManager<IdentityUser> userManager, 
+            SignInManager<IdentityUser> signInManager,
+            HttpContext httpContext)
         {
             this.configuration = configuration;
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.httpContext = httpContext;
         }
 
-        public async Task<LoginResponse> Login(LoginUser userLogin)
+        public async Task<bool> Login(LoginUser userLogin)
+        {
+            var user = await userManager.FindByEmailAsync(userLogin.Email);
+            if (user != null)
+            {
+                var result = await signInManager.CheckPasswordSignInAsync(user, userLogin.Password, false);
+
+                if (result.Succeeded) {
+                    await signInManager.SignInAsync(user, true);
+
+                    var principal =  await signInManager.CreateUserPrincipalAsync(user);
+
+                    Thread.CurrentPrincipal = principal;
+                    httpContext.Current.Current.User = principal;
+
+                    return true; 
+                }
+            }
+
+            return false;
+        }
+
+        public async Task Logout()
+        {
+            await signInManager.SignOutAsync();
+        }
+
+        public async Task<LoginResponse> Token(LoginUser userLogin)
         {
             var user = await userManager.FindByEmailAsync(userLogin.Email);
             if (user != null) {

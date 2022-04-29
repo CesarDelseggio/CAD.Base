@@ -20,7 +20,7 @@ namespace CAD.Base.Web.Controllers.Account
         [Route("[action]")]
         public async Task<ActionResult<LoginResponse>> Login(LoginUser loginUser)
         {
-            var response = await authServices.Login(loginUser);
+            var response = await authServices.Token(loginUser);
             if (response is null) { BadRequest(); }
 
             return response;
