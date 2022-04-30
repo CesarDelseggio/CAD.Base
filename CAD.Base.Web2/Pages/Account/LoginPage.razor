@@ -69,8 +69,8 @@
 
     private async void Login()
     {
-        var resp = await authService.Login(loginUser);
+        var resp = await authService.Token(loginUser);
 
-        if (resp) navManager.NavigateTo("");
+        if (resp != null) navManager.NavigateTo("");
     }
 }

@@ -21,6 +21,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Localization;
+using CAD.Base.Web.Services;
 
 namespace CAD.Base.Web
 {
@@ -64,6 +65,7 @@ namespace CAD.Base.Web
             services.AddSingleton<WeatherForecastService>();
 
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<TokenProvider>();
         }
 
         //Configuramos el servicio de autenticacion basado en tokens
