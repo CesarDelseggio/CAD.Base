@@ -1,0 +1,9 @@
+﻿<div class="row bg-white border">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+}

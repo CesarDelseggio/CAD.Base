@@ -1,0 +1,16 @@
+﻿<div class="@Class pt-3">
+    <img src=@ImageSorce class="img-thumbnail"/>
+    <h3>@Title</h3>
+    <p>@Resume</p>
+</div>
+
+@code {
+    [Parameter]
+    public string Class { get; set; }
+    [Parameter]
+    public string ImageSorce { get; set; }
+    [Parameter]
+    public string Title { get; set; }
+    [Parameter]
+    public string Resume { get; set; }
+}

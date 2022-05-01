@@ -8,3 +8,11 @@
         ChangeTheme: _changeTheme
     };
 })();
+
+window.initializeCarousel = () => {
+    $('#bootstrapCarousel').carousel({ interval: 3000 })
+    $('#bootstrapCarousel-prev').click(
+        () => $('#bootstrapCarousel').carousel('prev'));
+    $('#bootstrapCarousel-next').click(
+        () => $('#bootstrapCarousel').carousel('next'));
+}

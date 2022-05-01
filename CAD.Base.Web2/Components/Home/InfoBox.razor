@@ -1,0 +1,16 @@
+﻿<div class="col-12 col-sm-6 col-lg-3">
+    <div class="info-box">
+        <span class="info-box-icon bg-info"><i class="@IconClass"></i></span>
+
+        <div class="info-box-content">
+            @ChildContent
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string IconClass { get; set; }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}
