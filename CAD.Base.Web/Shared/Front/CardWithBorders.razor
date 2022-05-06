@@ -1,0 +1,34 @@
+﻿<div class="h-100 w-100 pb-3">
+    <div class="bg-white h-100 w-100" 
+        style="border:1px solid #ddd;box-shadow: 2px 4px 10px #d7e2e2;margin-top:0px;padding:30px;">
+        
+        @if (Header != null)
+        {
+            <div class=@ClassHeader>
+                @Header
+            </div>    
+        }
+
+        @if (Content != null)
+        {
+            <div class=@ClassContent>
+                @Content
+            </div>    
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string ClassHeader { get; set; }
+
+    [Parameter]
+    public string ClassContent { get; set; }
+    
+    [Parameter]
+    public RenderFragment Header { get; set; }
+    
+    [Parameter]
+    public RenderFragment Content { get; set; }
+
+}

@@ -11,14 +11,16 @@ namespace CAD.Base.DataAccess.Data
         public ApplicationDbContext(DbContextOptions options)
             : base(options)
         {
+            if (options != null)
+            {
+                Database.EnsureCreated();
+            }
         }
 
         //Aqui podemos cargar los datos iniciales de la aplicación, si los tiene.
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-
         }
     }
 }

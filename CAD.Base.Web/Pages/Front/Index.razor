@@ -1,0 +1,67 @@
+﻿@page "/"
+
+<ContentWrapper>
+    <Header>
+        @*<Slider Images=@SliderImages ClassImage="d-block w-100"></Slider>
+        <hr />*@
+        <Banner ImageBanner="img/banner1.jpg"></Banner>
+    </Header>
+    <Content>
+        <div class="text-center">
+            <h3><strong>NUESTRAS MARCAS</strong></h3>
+            <Slider Images=@SliderImages></Slider>
+        </div>
+        
+        <hr />
+
+        <Borderer Class="mb-3">
+            <ServiceCard Class="col-12 text-center" ImageSorce="img/serviciotecnico.png" Title="Servicio Técnico" 
+                Detail="Contamos con profesionales expertos y calificados en el rubro, que se ocupan de dejar tu vehiculo como nuevo. 
+                        Con mas de 40 añós de trayectoria somos el lugra indicado al que tenes que acudir cuando necesitas realizar 
+                        mantenimieto y reparación a tu vehiculo."/>
+        </Borderer>
+
+        <Borderer Class="mb-3">
+            <ServiceCard Class="col-12 text-center" ImageSorce="img/repuestos.png" Title="Venta de Repuestos" 
+                ImageFloatRight=true
+                Detail="Todo lo que su vehículo necesita, lo tenemos: rodamientos, retenes, filtros, lubricantes, entre otros. 
+                        Y si no contamos con stock, no te preocupes, nos encargamos de conseguirtelo con nuestros destacados proveedores. 
+                        
+                        Visítenos, estaremos encantados de atenderlo."/>
+        </Borderer>
+
+        <Borderer Class="mb-3">
+            <ServiceCard Class="col-12 text-center" ImageSorce="img/representantes.png" Title="Representante Oficial" 
+                Detail="Somos representantes oficiales de productos y repustos de marcas como Stihl y Puma Energy. 
+                        Te ofrecemos todo lo que necesitas al mejor precio del mercado. "/>
+        </Borderer>
+
+        @*<SurveyPrompt Title="How is Blazor working for you?" />*@
+
+        <div class="row mt-4">
+            <InfoBox IconClass="fa fa-cogs">
+                <span><b>Repustos</b></span>
+                <span>Todo lo que necesitas</span>
+            </InfoBox>
+            <InfoBox IconClass="fa fa-life-ring">
+                <span><b>Servicio Técnico</b></span>
+                <span>Por Profecionales</span>
+            </InfoBox>
+            <InfoBox IconClass="fa fa-tags">
+                <span><b>Agente Oficial</b></span>
+                <span>Principales Marcas</span>
+            </InfoBox>
+            <InfoBox IconClass="fa fa-shopping-cart">
+                <span><b>Venta</b></span>
+                <span>Productos de calidad</span>
+            </InfoBox>
+        </div>
+        
+    </Content>
+</ContentWrapper>
+
+@code {
+    private string[] SliderImages = new string[] { "img/marca/bosch.png", "img/marca/czergueny.png", 
+        "img/marca/fram.png", "img/marca/fric-rot.png", "img/marca/moura.png", "img/marca/ombu.png", 
+        "img/marca/picana.png", "img/marca/puma.png", "img/marca/sensei.png", "img/marca/skf.png"};
+}

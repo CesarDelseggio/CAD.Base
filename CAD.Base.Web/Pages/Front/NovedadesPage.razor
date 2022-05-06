@@ -1,0 +1,44 @@
+﻿@page "/novedades"
+<ContentWrapper>
+    <Content>
+        <Borderer Class="mb-3">
+            <PostDetail Class="col-12 text-center" ImageSorce="img/news/workday.png"
+                    
+                    Title="Feliz día del Trabajador"
+                    Resume="Desde integral repuestos te deseamos un muy felíz día."
+                    Detail="Te contamos que el día 02/05 no estaremos trabajando. Nos vamos a tomar el día para disfrutar
+                            en compañia de familiares y colegas. Esperamos que lo pases bien y disfrutez de tu merecido descanso"
+                    Date=@(new DateTime(2022,04,29))>
+            </PostDetail>
+        </Borderer>
+    
+        <Borderer Class="mb-3">
+            <PostDetail Class="col-12 text-center" ImageSorce="img/news/sales.png"
+                    Title="Ofertas en la web"
+                    Resume="En breve, estaremos publicando productos y ofertas en la web."
+                    Detail="Estamos trabajando para que muy pronto puedas ver en esta misma página algunos de nuestros productos
+                            mas solicitados, con sus precios y características para que los puedas consultar desde la comodidad de tu hogar.
+                            Te estaremos informando por este mismo medio cuando lo tengamos listo."
+                    Date=@(new DateTime(2022,04,25))>
+            </PostDetail >
+        </Borderer>
+    
+        <Borderer Class="mb-3">
+            <PostDetail Class="col-12 text-center" ImageSorce="img/news/newweb.png"
+                    Title="Nueva Pagina Web"
+                    Resume="Mas dinámica e interactiva."
+                    Detail="Renovamos nuestra página web, para hacerla mas atractiva y mas dinámica. 
+                            A partir de ahora vas a poder ingresar a ella para enterarte de todas las 
+                            novedades que tenemos para vos. Te mantenemos al tanto sobre los nuevos ingresos 
+                            de mercadería, promociones con tarjeta y todos las noticias para que las puedas aprovechar."
+                    Date=@(new DateTime(2022,04,20))>
+            </PostDetail>
+        </Borderer>
+
+        <div class="row"></div>
+    </Content>
+</ContentWrapper>
+
+@code {
+
+}

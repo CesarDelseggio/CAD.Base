@@ -1,0 +1,62 @@
+﻿@using CAD.Base.Common.Data.Models
+@using CAD.Base.Common.ViewModels.Account
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<DataAnnotationsNames> localizer
+
+<div class="@Class">
+    <EditForm Model=messageData OnValidSubmit=@Send class="form-horizontal">
+        <DataAnnotationsValidator/>
+
+        <div class="form-group row">
+            <label for="Name" class="col-sm-2 col-form-label text-left">@localizer["Name"]</label>
+            <InputText class="form-control col-sm-10" @bind-Value=@messageData.Name id="Email"/>
+            <ValidationMessage For=@(()=>messageData.Name) class="text-danger"/>
+        </div>
+        
+        <div class="form-group row">
+            <label for="Company" class="col-sm-2 col-form-label text-left">@localizer["Company"]</label>
+            <InputText class="form-control col-sm-10" @bind-Value=@messageData.Company id="Email"/>
+            <ValidationMessage For=@(()=>messageData.Company) class="text-danger"/>
+        </div>
+
+        <div class="form-group row">
+            <label for="Email" class="col-sm-2 col-form-label text-left">@localizer["Email"]</label>
+            <InputText class="form-control col-sm-10" @bind-Value=@messageData.EmailFrom id="Email"/>
+            <ValidationMessage For=@(()=>messageData.EmailFrom) class="text-danger"/>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label text-left">@localizer["Subject"]</label>
+            <InputText class="form-control col-sm-10"  @bind-Value=@messageData.Subject/>
+            <ValidationMessage For=@(()=>messageData.Subject) class="text-danger"/>
+        </div>
+        
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label text-left">@localizer["Message"]</label>
+            <InputTextArea class="form-control"  @bind-Value=@messageData.Message/>
+            <ValidationMessage For=@(()=>messageData.Message) class="text-danger"/>
+        </div>
+       
+        <button class="btn btn-success" type="submit">Enviar</button>
+    </EditForm>
+</div>
+
+@code {
+    private MessageData messageData = new MessageData();
+    [Parameter]
+    public string EmailTo { get; set; }
+    [Parameter]
+    public string Class { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        messageData.EmailTo = EmailTo;
+    }
+
+    protected void Send()
+    {
+        Console.WriteLine("Correo enviado: " + messageData.Message);
+    }
+}

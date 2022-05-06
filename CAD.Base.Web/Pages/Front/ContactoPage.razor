@@ -1,0 +1,62 @@
+﻿@page "/contacto"
+
+<ContentWrapper>
+    <Content>
+        <CardWithBorders ClassHeader="text-center">
+            <Header>
+                <h3>Contactanos</h3>
+            </Header>
+            <Content>
+                <p>
+                    En Integral Repuestos nos dedicamos a la venta de repuestos. 
+                    Además, contamos con personal altamente calificado y con experiencia en el rubro. 
+                    Acérquese a nuestro local y adquiera lo que su auto necesita.
+                </p>
+            </Content>
+        </CardWithBorders>
+
+        <div class="row">
+            <div class="col-md-6">
+                <CardWithBorders ClassHeader="text-center mb-5">
+                    <Header>
+                        <h3>Nuestros Datos</h3>
+                    </Header>
+                    <Content>
+                        <ContactData Email="guadzi@hotmail.com" 
+                            Phone="(03725) 42 0129" Phone2="(03725) 42 0317" 
+                            Address="Calle Ingenieros Mañanes 767 General José de San Martín CHACO 3509"
+                            Day = "Lu - Vi: 07:30 - 12:00 15:30 - 19:30" Day2= "Sá: 07:30 - 12:00"></ContactData>
+                    </Content>
+                </CardWithBorders>
+            </div>
+            <div class="col-md-6">                
+                <CardWithBorders ClassHeader="text-center mb-5">
+                    <Header>
+                        <h3>Formulario de Contacto</h3>
+                    </Header>
+                    <Content>
+                        <ContactForm EmailTo="guadzi@hotmail.com"></ContactForm>
+                    </Content>
+                </CardWithBorders>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=col-12>
+                <CardWithBorders ClassHeader="text-center">
+                    <Header>
+                        <h3>Donde estamos</h3>
+                    </Header>
+                    <Content>
+                        <MapAddress Latitude="" Longitude=""></MapAddress>
+                    </Content>
+                </CardWithBorders>
+            </div>
+        </div>
+        
+    </Content>
+</ContentWrapper>
+
+@code {
+
+}

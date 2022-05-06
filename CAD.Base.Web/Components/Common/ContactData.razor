@@ -1,0 +1,47 @@
+﻿<div>
+    <div>
+        <h6><b>Dirección: </b> </h6>
+        <address>@Address</address>
+    </div>
+    
+    <div>
+        <b>Telefono: </b>
+        <span>@Phone</span>
+    </div>
+
+    <div>
+        <b>Telefono: </b>
+        <span>@Phone2</span>
+    </div>
+
+    <div>
+        <b>Email: </b>
+        <span>@Email</span>
+    </div>
+
+    <div class="mt-3">
+        <b>Horarios de atencón</b>
+        <div class="ml-3">@Day</div>
+        <div class="ml-3">@Day2</div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Email { get; set; }
+
+    [Parameter]
+    public string Address { get; set; }
+
+    [Parameter]
+    public string Phone { get; set; }
+
+    [Parameter]
+    public string Phone2 { get; set; }
+
+    [Parameter]
+    public string Day { get; set; }
+
+    [Parameter]
+    public string Day2 { get; set; }
+}

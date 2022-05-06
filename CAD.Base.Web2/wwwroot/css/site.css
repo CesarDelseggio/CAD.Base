@@ -1,7 +1,0 @@
-@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-
-app {
-    position: relative;
-    display: block;
-    flex-direction: column;
-}

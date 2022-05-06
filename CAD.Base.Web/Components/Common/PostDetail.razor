@@ -1,0 +1,26 @@
+﻿<div class="@Class pt-4">
+    <img src=@ImageSorce class="w-50"/>
+    <hr/>
+    <h3>@Title</h3>
+    <h5>@Date</h5>
+
+<div class="text-left m-3">
+    <p>@Resume</p>
+    <p>@Detail</p>
+</div>
+</div>
+
+@code {
+    [Parameter]
+    public string Class { get; set; }
+    [Parameter]
+    public string ImageSorce { get; set; }
+    [Parameter]
+    public string Title { get; set; }
+    [Parameter]
+    public string Resume { get; set; }
+    [Parameter]
+    public string Detail { get; set; }
+    [Parameter]
+    public DateTime Date { get; set; }
+}

@@ -1,0 +1,76 @@
+﻿@page "/account/login"
+@using CAD.Base.Common.ViewModels.Account
+@inject NavigationManager navManager;
+@inject Interfaces.Auth.IAuthService authService;
+
+@using Microsoft.AspNetCore.Components.Authorization;
+
+<div class="login-box">
+    <div class="login-logo">
+        <a href=""><b>Integral</b> Repuestos</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+        <div class="card-body login-card-body">
+            <EditForm Model=loginUser OnValidSubmit="Login">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="input-group mb-3">
+                    <InputText @bind-Value="loginUser.Email" class="form-control" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <InputText @bind-Value="loginUser.Password" class="form-control" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="input-group mb-3">
+                    @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                </div>
+
+                <div class="row">
+                    <div class="col-8">
+                        <div class="icheck-primary">
+                            <InputCheckbox @bind-Value="loginUser.RememberMe" DisplayName="Recuerdame">
+                                
+                            </InputCheckbox>
+                            <label>Recuerdame</label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </EditForm>
+
+            <p class="mb-1">
+                <a href="Account/ForgotPassword">¿Ha olvidado su contraseña?</a>
+            </p>
+            <p class="mb-0">
+                <a href="Account/Register" class="text-center">Registrar como nuevo usuario</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+@code{
+    LoginUser loginUser = new LoginUser();
+
+    private async void Login()
+    {
+        var resp = await authService.Token(loginUser);
+
+        if (resp != null) navManager.NavigateTo("");
+    }
+}
